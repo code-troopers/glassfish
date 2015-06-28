@@ -1,15 +1,16 @@
 FROM tifayuki/java:7
 MAINTAINER Feng Honglin <hfeng@tutum.co>
+MAINTAINER Cedric Gatay <c.gatay@code-troopers.com>
 
 RUN apt-get update && \
     apt-get install -y wget unzip pwgen expect && \
-    wget download.java.net/glassfish/4.0/release/glassfish-4.0.zip && \
-    unzip glassfish-4.0.zip -d /opt && \
-    rm glassfish-4.0.zip && \
+    wget download.java.net/glassfish/3.1.2.2/release/glassfish-3.1.2.2.zip && \
+    unzip glassfish-3.1.2.2.zip -d /opt && \
+    rm glassfish-3.1.2.2.zip && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-ENV PATH /opt/glassfish4/bin:$PATH
+ENV PATH /opt/glassfish/bin:$PATH
 
 ADD run.sh /run.sh
 ADD change_admin_password.sh /change_admin_password.sh
