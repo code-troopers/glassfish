@@ -10,7 +10,7 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-ENV PATH /opt/glassfish/bin:$PATH
+ENV PATH /opt/glassfish3/bin:$PATH
 
 ADD run.sh /run.sh
 ADD change_admin_password.sh /change_admin_password.sh
